@@ -1,0 +1,6 @@
+export { default as Header } from './UI/Header/Header'
+export { default as Footer } from './UI/Footer/Footer'
+export { default as Box } from './Box/Box'
+export { default as BoxItem } from './Box/BoxItem'
+export { default as ChessBoard } from './Game/Chess/ChessBoard'
+export { default as HoverCard } from './Card/HoverCard'
