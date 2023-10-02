@@ -2,13 +2,11 @@ import { Chess, Square } from 'chess.js'
 import { Chessboard } from 'react-chessboard'
 import Engine from '../../../../public/engine'
 import { ChessMove } from '../../../utils/interface'
+import { BiArrowToLeft, BiArrowToRight } from 'react-icons/bi'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { forwardRef, useEffect, useMemo, useState } from 'react'
 import { CustomSquareProps } from 'react-chessboard/dist/chessboard/types'
-import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from '@/shadcn_components/ui/avatar'
+import { ScrollArea } from '@/shadcn_components/ui/scroll_area'
 
 const ChessBoard = () => {
     const engine = useMemo(() => new Engine(), [])
@@ -109,42 +107,17 @@ const ChessBoard = () => {
     }
 
     return (
-        <div className='flex justify-center bg-[url("/assets/chess_background.jpg")] h-screen '>
-            <div
-                style={{
-                    width: 'calc((100vw - 820px)/2)',
-                }}
-                className='flex flex-col justify-between items-center py-[50px]'
-            >
-                <div className='flex flex-col items-center justify-center space-y-2 '>
-                    <Avatar className='w-[100px] h-[100px]'>
-                        <AvatarImage
-                            src='https://github.com/shadcn.png'
-                            alt='@shadcn'
-                        />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <span className='text-2xl text-[#fff]'>Eck</span>
-                </div>
-                <img
-                    src='/assets/vs.png'
-                    alt='vs'
-                    className='w-[200px] h-[200px] object-fill'
-                />
-                <div className='flex flex-col items-center justify-center space-y-2 '>
-                    <Avatar className='w-[100px] h-[100px]'>
-                        <AvatarImage
-                            src='https://github.com/shadcn.png'
-                            alt='@shadcn'
-                        />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <span className='text-2xl text-[#fff]'>Eck</span>
-                </div>
-            </div>
+        <div className='flex justify-center items-center bg-[#302E2B] h-screen space-x-10 '>
             <div>
+                <div className='flex items-start justify-start space-x-2  '>
+                    <img
+                        className='w-[50px] h-[50px]'
+                        src='https://github.com/shadcn.png'
+                    />
+                    <span className='text-lg text-[#fff]'>Eck</span>
+                </div>
                 <Chessboard
-                    boardWidth={820}
+                    boardWidth={710}
                     position={gamePosition}
                     onPieceDrop={onDrop}
                     customSquare={CustomSquareRenderer}
@@ -152,12 +125,70 @@ const ChessBoard = () => {
                         chessMoveShowOnClick(square)
                     }}
                 />
+                <div className='flex items-start justify-start space-x-2  '>
+                    <img
+                        className='w-[50px] h-[50px]'
+                        src='https://github.com/shadcn.png'
+                    />
+                    <span className='text-lg text-[#fff]'>Eck</span>
+                </div>
             </div>
             <div
                 style={{
                     width: 'calc((100vw - 820px)/2)',
                 }}
-            ></div>
+                className='h-full py-[55px]'
+            >
+                <div className='bg-[#21201D] h-full flex flex-col justify-between'>
+                    <div className='h-[70%] py-[10px] flex flex-col'>
+                        <span className='text-[#fff] font-bold px-[10px]'>
+                            History
+                        </span>
+                        <div className='bg-[#93928A] w-full h-[1px] my-[10px]'></div>
+                        <div className='flex flex-col justify-between h-full'>
+                            <ScrollArea>
+                                <div className='flex flex-col '>
+                                    <div className='flex flex-col py-[4px] px-[10px]'>
+                                        <div className='flex items-center text-[#fff]'>
+                                            <span className='text-[#93928A] font-medium w-[10%]'>
+                                                1.
+                                            </span>
+                                            <div className='flex items-center space-x-20 font-semibold'>
+                                                <span>d4</span>
+                                                <span>d6</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col py-[4px] px-[10px] bg-[#2A2926]'>
+                                        <div className='flex items-center text-[#fff]'>
+                                            <span className='text-[#93928A] font-medium w-[10%]'>
+                                                2.
+                                            </span>
+                                            <div className='flex items-center space-x-20 font-semibold'>
+                                                <span>d4</span>
+                                                <span>d6</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ScrollArea>
+                            <div className='flex items-center justify-center space-x-6'>
+                                <BiArrowToLeft className='text-[#90908E] w-[35px] h-[35px] cursor-pointer' />
+                                <IoIosArrowBack className='text-[#90908E] w-[30px] h-[30px] cursor-pointer' />
+                                <IoIosArrowForward className='text-[#90908E] w-[30px] h-[30px] cursor-pointer' />
+                                <BiArrowToRight className='text-[#90908E] w-[35px] h-[35px] cursor-pointer' />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='h-[30%] flex flex-col'>
+                        <div className='bg-[#262522] flex-1'></div>
+                        <input
+                            placeholder='Trò chuyện'
+                            className='w-full bg-transparent py-[10px] outline-none text-[#fff] pl-[8px]'
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
