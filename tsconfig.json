@@ -25,11 +25,6 @@
             "@/*": ["./src/*"]
         }
     },
-    "include": [
-        "src",
-        "public/stockfish",
-        "public/stockfish",
-        "public/stockfish-nnue-16.js"
-    ],
+    "include": ["src", "public/stockfish", "node_modules/@chrisoakman"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
