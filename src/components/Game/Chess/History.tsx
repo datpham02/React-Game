@@ -6,7 +6,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 const History = ({ historyData }: HistoryProps) => {
     return (
-        <div className='bg-[#21201D] h-full flex flex-col py-[10px]'>
+        <div className='bg-[#21201D] h-full w-full flex flex-col py-[10px]'>
             <div className='flex flex-col h-full'>
                 <span className='text-[#fff] font-bold px-[10px] pb-[10px]'>
                     Lịch sử

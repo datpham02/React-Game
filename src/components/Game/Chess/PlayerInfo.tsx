@@ -5,7 +5,7 @@ const PlayerInfo = ({
     avatar,
     name,
     capturedPieces,
-    pieceColor,
+    capturedPiecesColor,
 }: PlayerInfoProps) => {
     return (
         <div className='flex items-start justify-start space-x-2 h-full'>
@@ -14,7 +14,7 @@ const PlayerInfo = ({
                 <span className='text-lg text-[#fff]'>{name}</span>
                 <CapturedPieces
                     capturedPieceData={capturedPieces}
-                    className={`text-[${pieceColor}]`}
+                    className={`text-[${capturedPiecesColor}]`}
                 />
             </div>
         </div>

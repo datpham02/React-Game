@@ -46,7 +46,7 @@ const ChessMove = ({ turn }: ChessMoveProps) => {
                 >
                     <ChessLocation name={piece} square={from} />
                     <img
-                        src='./assets/attack.png'
+                        src='./assets/images/attack.png'
                         className='w-[25px] h-[25px] object-cover'
                     />
                     <ChessLocation name={captured} square={to} />
@@ -68,7 +68,7 @@ const ChessMove = ({ turn }: ChessMoveProps) => {
             >
                 <ChessLocation name={piece} square={from} />
                 <img
-                    src='./assets/attack.png'
+                    src='./assets/images/attack.png'
                     className='w-[25px] h-[25px] object-cover'
                 />
                 <ChessLocation name={piece} square={to} />

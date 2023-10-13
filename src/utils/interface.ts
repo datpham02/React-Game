@@ -55,11 +55,12 @@ export interface TurnData {
     captured?: string
     promotion?: string
 }
+export interface HistoryData {
+    w: TurnData
+    b: TurnData
+}
 export interface HistoryProps {
-    historyData: {
-        w: TurnData
-        b: TurnData
-    }[]
+    historyData: HistoryData[]
 }
 export interface CapturedPieceData {
     piece: string
@@ -76,14 +77,21 @@ export interface PlayerInfoProps {
     avatar: string
     name: string
     capturedPieces: CapturedPieceData[]
-    pieceColor: string
+    capturedPiecesColor: string
 }
 export interface Player {
     id: string
+    pieceColor: string
     name: string
     avatar: string
+    capturedPieces: CapturedPieceData[]
 }
 export interface ChessBoardGameProps {
-    playerWhite: Player
-    playerBlack: Player
+    historyDataOnchange: (data: TurnData[]) => void
+    pieceCapturedOnchange: (data: TurnData[]) => void
+}
+export interface PromotionDialogProps {
+    color: string
+    className?: string
+    onPromotionPieceSelect: (promotion: string) => void
 }
